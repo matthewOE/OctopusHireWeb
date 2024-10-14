@@ -1,0 +1,39 @@
+<div class="display-holder">
+    <div class="content-title font" *ngIf="inputData.headerName">
+        <h3>{{inputData.headerName}}</h3>
+    </div>
+
+    <form [formGroup]="addEditForm" (ngSubmit)="onSave()">
+        
+        <div class="headerHolder">
+            <table class="inputTable">
+                <div *ngFor="let input of inputData.inputElements; let i = index" class="row-holder">
+                    <ng-container *ngTemplateOutlet="elements; context: { input: input, i: i }"></ng-container>
+                </div>
+            </table>
+        </div>
+
+        <ng-template #elements let-input="input" let-i="i">
+            <tr *ngIf="input.elementType === 'image'"  class="para-row">
+                <img [src]="input.src" [ngStyle]="{'width': input.width, 'height': input.height}">
+            </tr>
+            <tr *ngIf="input.elementType === 'input'" class="para-row">
+                <th class="para-header">{{input.label}}</th>
+                <td class="para-input font" >
+                    <input class="input" [formControlName]="input.id" (click)="evaluateFunc(input.onClickFunc, input)">
+                </td>
+            </tr>
+        </ng-template>
+
+        
+        <div class="buttons">
+            <button *ngIf="inputData.buttons.closebtn" class="btn" color="primary" mat-raised-button type="reset" [mat-dialog-close]>
+                {{inputData.buttons.closebtn}}
+            </button>
+            <button *ngIf="inputData.buttons.savebtn" class="btn" color="primary" mat-raised-button type="submit">
+                {{inputData.buttons.savebtn}}
+            </button>
+        </div>
+    </form>
+</div>
+

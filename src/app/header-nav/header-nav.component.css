@@ -1,0 +1,11 @@
+.navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: white !important;
+    background-color: var(--mdc-protected-button-label-text-color, var(--mat-app-primary)) !important;
+}
+
+::ng-deep .mdc-tab__text-label {
+    color: white !important;
+}

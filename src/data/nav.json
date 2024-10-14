@@ -1,0 +1,24 @@
+{
+    "fullNav":[
+        {
+            "dropdown": false,
+            "route": "home",
+            "label": "Home"
+        },
+        {
+            "dropdown": false,
+            "route": "hire",
+            "label": "Hire"
+        },
+        {
+            "dropdown": false,
+            "route": "login",
+            "label": "Login"
+        },
+        {
+            "dropdown": false,
+            "route": "sign-up",
+            "label": "Sign-up"
+        }
+    ]
+}
